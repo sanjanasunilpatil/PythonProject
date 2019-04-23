@@ -272,6 +272,22 @@ class base:
         l1.pop(-1)
         print("List after removing elements: {}".format(l1))
 
+    def tupleOperations(self):
+        L1 = ['45', 'abc', '4', 'g', '4']
+        T1 = tuple(L1)
+        n1, n2, n3, n4, n5 = T1
+        print(n1 + n2 + n3 + n4 + n5)
+
+        print(T1.count('4'))
+
+        value = input("Enter value which needs to be searched ")
+        if T1.count(value) > 0:
+            print("{} is present in tuple".format(value))
+
+        print("Slicing tuple from 1st position to 3rd {}".format(T1[1:4]))
+
+        print("Printing tuple in revered order {}".format(T1[::-1]))
+
 
 class derived(base):
     def call_function(self):
@@ -312,3 +328,4 @@ d = derived()
 # d.list_8()
 # print(d.list_9([2, 7, 435, 678], [7, 678, 34, 5]))
 # d.list_10()
+# d.tupleOperations()
