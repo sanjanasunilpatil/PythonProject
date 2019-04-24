@@ -61,7 +61,7 @@ class base:
         print(platform.architecture())
 
     def minMax(self):
-        L1 = ['5', '100', '1', '0']
+        L1 = ['5', '100', '-1', '0']
         max = int(L1[0])
         min = int(L1[0])
 
@@ -289,6 +289,82 @@ class base:
         print("Printing tuple in revered order {}".format(T1[::-1]))
 
 
+    def calculateFrequency(self):
+        value = input("Enter string ")
+        l1 = list(enumerate(value))
+        d1 = {}
+        for i in range(0, len(l1)):
+            t1 = tuple(l1[i])
+            if t1[1] in d1:
+                d1[t1[1]] = d1[t1[1]] + 1
+            else:
+                d1[t1[1]] = 1
+
+        print("Printing Frequency {}".format(d1))
+
+    def replaceCharInString(self):
+        str = input("Enter string ")
+        char = input("char whose value needs to be replaced ")
+
+        start_index = str.index(char)
+
+        str1 = str[start_index + 1:len(str)]
+        str2 = str[0:str.index(char) + 1]
+        new_string = str2 + str1.replace(char, '$')
+
+        print("New string is {}".format(new_string))
+
+    def string_4(self):
+        str = input("Enter String ")
+        if str[-3:] == 'ing':
+            print(str + 'ly')
+        else:
+            print(str + 'ing')
+
+    def largeString(self):
+        l1 = ["Sanjana", "abc", "jhgrtiyhutiytyhyu", "aaaaaaaaaaaaaaaaaaaaaaaaa"]
+        max_len = len(l1[1])
+        large_value = ""
+        for i in range(0, len(l1)):
+            if max_len < len(l1[i]):
+                max_len = len(l1[i])
+                large_value = l1[i]
+
+        print("Max length value is {}".format(large_value))
+
+    def upperLowerString(self):
+        str = input("Enter string ")
+        print("Lower string {}".format(str.lower()))
+        print("Lower string {}".format(str.upper()))
+
+    def string_7(self):
+        str = input("Enter strings ")
+        s = set(str.split(','))
+        l1 = []
+        l1 = sorted(s, key=lambda x: x)
+        print(l1)
+
+    def string_8(self):
+        str = input("Enter String ")
+        char = input("Enter character to get part of string before that character ")
+        index = str.index(char)
+        str = str[0:index]
+        print(str)
+
+    def string_9(self):
+        import textwrap
+
+        str = '''Hi this, is
+        sanjnaa. I work in  Capgemini.
+              I stay at Thane'''
+        print(textwrap.fill(str, width=50))
+
+    def countSubstring(self):
+        str = input("Enter String ")
+        subStr = input("Enter string whose count needs to be calculated ")
+        str = str.lower()
+        print("{} is present for {} times in string".format(subStr, str.count(subStr)))
+
 class derived(base):
     def call_function(self):
         print("Calling function to execute class")
@@ -329,3 +405,12 @@ d = derived()
 # print(d.list_9([2, 7, 435, 678], [7, 678, 34, 5]))
 # d.list_10()
 # d.tupleOperations()
+# d.calculateFrequency()
+# d.replaceCharInString()
+# d.string_4()
+# d.largeString()
+# d.upperLowerString()
+# d.string_7()
+# d.string_8()
+# d.string_9()
+d.countSubstring()
