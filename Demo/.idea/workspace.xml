@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea1086ec-7cd2-4893-8f6f-4332b9ee06f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/LinearAlgebra.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/LinearAlgebra.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/array.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/array.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/python1.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/python1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/python2.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/python2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/python3.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/python3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/python4.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/python4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/python5.py" beforeDir="false" afterPath="$PROJECT_DIR$/PythonPrograms/python5.py" afterDir="false" />
-    </list>
+    <list default="true" id="ea1086ec-7cd2-4893-8f6f-4332b9ee06f8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,10 +84,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.." />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/PythonPrograms" />
       <recent name="$PROJECT_DIR$/venv" />
     </key>
   </component>
