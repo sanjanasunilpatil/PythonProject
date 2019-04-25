@@ -1,3 +1,4 @@
+import numpy as num
 class demo:
 
     def addMatrices(self):
@@ -14,7 +15,7 @@ class demo:
             for j in range(0, 3):
                 z[i].append(x[i][j] + y[i][j])
 
-        print("Matrix addition : Z = ",z)
+        print("Matrix addition: ",num.array(z))
 
     def scalarMultiplication(self):
         x = [[12, 7, 3],
@@ -27,7 +28,7 @@ class demo:
             for j in range(0, 3):
                 z[i].append(x[i][j] * y)
 
-        print("Scalar multiplication : Z = ", z)
+        print("Scalar multiplication: ", z)
 
     def vectorMultiplication(self):
         x = [[5, 1, 3],
@@ -70,7 +71,7 @@ class demo:
         print("Matrix multiplication : Z = ", z)
 
     def inverseMatrix(self):
-        import numpy as num
+
 
         x = [[12, 7, 3],
              [4, 5, 6],
@@ -95,8 +96,8 @@ class demo:
 d = demo()
 
 d.addMatrices()
-d.scalarMultiplication()
-d.vectorMultiplication()
-d.matrixMultiplication()
-d.inverseMatrix()
-d.transposeMatrix()
+# d.scalarMultiplication()
+# d.vectorMultiplication()
+# d.matrixMultiplication()
+# d.inverseMatrix()
+# d.transposeMatrix()
