@@ -12,8 +12,8 @@ class base:
 
     def show_calendar(self):
         month = int(input("Enter month"))
-        year = int(input ("Enter year"))
-        print (calendar.month(year,month))
+        year = int(input("Enter year"))
+        print(calendar.month(year, month))
 
     def doc_print(self):
         print(len.__doc__)

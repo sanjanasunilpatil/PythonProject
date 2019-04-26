@@ -38,10 +38,10 @@ class demo:
         z = []
 
         value = 0
-        for row in range(0, 3):
+        for column in range(0, 3):
             sum = 0
-            for column in range(0, 3):
-                value = y[column] * x[column][row]
+            for row in range(0, 3):
+                value = y[row] * x[row][column]
                 sum = sum + value
             z.append(sum)
 
@@ -71,8 +71,6 @@ class demo:
         print("Matrix multiplication : Z = ", z)
 
     def inverseMatrix(self):
-
-
         x = [[12, 7, 3],
              [4, 5, 6],
              [7, 8, 9]]
