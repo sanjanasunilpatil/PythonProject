@@ -45,8 +45,10 @@ class Demo:
         a = np.zeros(total_zeros).reshape(n, n)
         print("Original Matrix : \n", a)
 
-        a[1::2, ::2] = 1      # Alternate rows converted into alternate 1s as per alternate column .. Only for alternate row
-        a[::2, 1::2] = 1      # Alternate columns converted into alternate 1s as per alternate row .. Only for alternate columns
+        for i in range(1, n, 2):       # Traverse through rows
+            for j in range(0, n, 2):   # Traverse through Columns
+                a[i][j] = 1            # update alternate row and update column particular to row i
+                a[j][i] = 1            # update alternate Column and update row particular to column j
 
         print("Updated Matrix : \n", a)
 
@@ -106,5 +108,5 @@ d = Demo()
 # d.appendValuesToEndOfArray()
 # d.realImaginaryPart()
 # d.sizeOfArray()
-# d.setOperations()
-d.equalityOperations()
+d.setOperations()
+# d.equalityOperations()
