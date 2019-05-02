@@ -1,5 +1,7 @@
 import numpy as np
 import math
+
+
 class Demo:
 
     def basic(self):
@@ -61,6 +63,39 @@ class Demo:
         print("Original array: ", a)
         print("Updated array ", np.append(a, [40, 50, 60], axis=0))
 
+    def realImaginaryPart(self):
+        a = np.array([1.00000000 + 0.j, 0.70710678 + 0.70710678j], dtype=complex)
+        real = a.real
+        imaginary = a.imag
+        print("Real part", real)
+        print("Imaginary part", imaginary)
+
+    def sizeOfArray(self):
+        a = np.array([1, 10, 3], dtype=np.int32)
+        print("length of array", a.size)
+        print("size of single element in bytes", a.itemsize)
+        print("size of total element in bytes", a.nbytes)
+
+    def setOperations(self):
+        a = np.array([0, 10, 20, 40, 60, 80])
+        b = np.array([10, 30, 40, 50, 70])
+        print("XOR: ", np.setxor1d(a, b))
+        print("Union:", np.union1d(a, b))
+        print("Intersection/Common from both arrays: ", np.intersect1d(a, b))
+        print("Difference from 1st - 2nd array: ", np.setdiff1d(a, b))
+        print("Difference from 2nd - 1st array: ", np.setdiff1d(b, a))
+
+    def equalityOperations(self):
+        a = np.array([1, 2])
+        b = np.array([4, 5])
+
+        print("Is 1st greater than 2nd array", np.greater(a, b))
+        # print("Is 2nd greater than 1st array", np.greater(b, a))
+        print("Is 1st greater than equal to 2nd array", np.greater_equal(a, b))
+        print("Is 1st equal 2nd array", np.equal(a, b))
+        print("Is 1st less than 2nd array", np.less(a, b))
+        print("Is 1st less than equal 2nd array", np.less_equal(a, b))
+
 d = Demo()
 # d.basic()
 # d.reverseArray()
@@ -68,4 +103,8 @@ d = Demo()
 # d.addBorder()
 # d.checkerBoard()
 # d.listTupleToArray()
-d.appendValuesToEndOfArray()
+# d.appendValuesToEndOfArray()
+# d.realImaginaryPart()
+# d.sizeOfArray()
+# d.setOperations()
+d.equalityOperations()
