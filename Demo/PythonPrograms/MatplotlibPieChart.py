@@ -11,6 +11,7 @@ class Demo:
         readings = [22.2, 17.6, 8.8, 8, 7.7, 6.7]
 
         plt.pie(readings, labels=label, autopct='%.2f%%')
+        plt.legend()
         plt.show()
 
     # This function first get the filepath of input medal.csv file.
@@ -25,9 +26,10 @@ class Demo:
         readings = list(data["gold_medal"])
 
         plt.pie(readings, labels=labels, autopct='%.2f%%')
+        plt.legend()
         plt.show()
 
 
 d = Demo()
-# d.createPieChart()
-d.pieChartFromCSV()
+d.createPieChart()
+# d.pieChartFromCSV()
