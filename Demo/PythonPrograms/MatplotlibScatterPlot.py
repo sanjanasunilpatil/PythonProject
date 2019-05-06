@@ -1,6 +1,5 @@
 from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
 
 
 class Demo:
@@ -45,7 +44,7 @@ class Demo:
         plt.legend()
         plt.show()
 
-    # This function draws a scatter plot for three different groups camparing weights
+    # This function draws a scatter plot for three different groups comparing weights
     # and heights.
     def scatterPlotUsingGroups(self):
         group1 = {'height': [113.7, 157.7, 136],
@@ -55,13 +54,9 @@ class Demo:
         group3 = {'height': [165.8, 170.9, 192.8],
                   'weight': [68.7, 71, 71.3]}
 
-        data1 = pd.DataFrame(group1)
-        data2 = pd.DataFrame(group2)
-        data3 = pd.DataFrame(group3)
-
-        plt.scatter(data1['height'], data1['weight'], color='red', label='Group1')
-        plt.scatter(data2['height'], data2['weight'], color='blue', label='Group2')
-        plt.scatter(data3['height'], data3['weight'], color='black', label='Group3')
+        plt.scatter(group1['height'], group1['weight'], color='red', label='Group1')
+        plt.scatter(group2['height'], group2['weight'], color='blue', label='Group2')
+        plt.scatter(group3['height'], group3['weight'], color='black', label='Group3')
 
         plt.title("comparison between weights and heights")
         plt.xlabel("Height")
