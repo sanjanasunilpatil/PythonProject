@@ -30,8 +30,8 @@ class Demo:
         x = []
         y = []
         for i in range(0, len(content), 1):
-            x.append(content[i].split(' ')[0])
-            y.append(content[i].split(' ')[1])
+            x.append(int(content[i].split(' ')[0]))
+            y.append(int(content[i].split(' ')[1]))
 
         plt.plot(x, y)
         plt.title("Sample Line")
@@ -74,6 +74,6 @@ class Demo:
 d = Demo()
 
 # d.drawLine()
-# d.drawLineInputFile()
+d.drawLineInputFile()
 # d.lineChartOfFinanacialData()
 # d.plotLines()
