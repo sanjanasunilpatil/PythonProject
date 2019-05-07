@@ -20,7 +20,7 @@ class Demo:
     # This function draws a scatter plot of “day” against “total bill” for a dataset tips
     def scatterPlot(self):
         data = sb.load_dataset('tips')
-        sb.barplot(x='day', y='total_bill', data=data)
+        sb.scatterplot(x='day', y='total_bill', data=data)
         plt.show()
 
     # This function draws a violin plot of sex against total_bill for a given dataset
