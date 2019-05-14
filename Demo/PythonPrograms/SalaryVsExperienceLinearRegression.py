@@ -11,7 +11,11 @@ y = dataSet.iloc[:, -1:0:-1]
 
 # Checking for null values
 if dataSet['Salary'].isnull().sum() > 0:
-    print("Null values are present")
+    print("Taking care of null values of temp column")
+    x = x.fillna(x.mean())
+if dataSet['YearsExperience'].isnull().sum() > 0:
+    print("Taking care of null values of cnt column")
+    y = y.fillna(y.mean())
 else:
     print("Null values are not present")
 
