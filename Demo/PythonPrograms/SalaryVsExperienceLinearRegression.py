@@ -14,16 +14,22 @@ df_training.to_csv('../inputFiles/training_data.csv', header=True, index=None)
 df_test.to_csv('../inputFiles/test_data.csv', header=True, index=None)
 
 dataSet = pd.read_csv('../inputFiles/training_data.csv')
-x = dataSet.iloc[:, 0:-1]
-y = dataSet.iloc[:, -1:0:-1]
+
+x_index = dataSet.columns.get_loc("YearsExperience")
+y_index = dataSet.columns.get_loc("Salary")
+
+x = dataSet.iloc[:, x_index:(x_index+1)]
+y = dataSet.iloc[:, y_index:(y_index+1)]
 
 # Checking for null values
 if dataSet['Salary'].isnull().sum() > 0:
     print("Taking care of null values of temp column")
     x = x.fillna(x.mean())
+
 if dataSet['YearsExperience'].isnull().sum() > 0:
     print("Taking care of null values of cnt column")
     y = y.fillna(y.mean())
+
 else:
     print("Null values are not present")
 
@@ -51,11 +57,15 @@ linearRegressionPklModel.close()
 linearRegressionPklModel = open(pkl_fileName, 'rb')
 regressionModelPkl = pickle.load(linearRegressionPklModel)
 
-# # Use pickle's regression model to Predict y values
-# dataSet_testData = pd.read_csv('')
-# y_pred_pkl = regressionModelPkl()
+# Use pickle's regression model to Predict y values and ca;cu;ate Accuracy
+dataSet_testData = pd.read_csv('../inputFiles/test_data.csv')
+x_testData = dataSet_testData.iloc[:, x_index:(x_index+1)]
+y_testData = dataSet_testData.iloc[:, y_index:(y_index+1)]
+y_pred_pkl = regressionModelPkl.predict(x_testData)
 
+accuracy_pk = r2_score(y_testData, y_pred_pkl)
 
+print("Accuracy by pickle model ", accuracy_pk)
 
 # # Plotting training set result into graphs
 # plt.scatter(x_train, y_train, c='r')
