@@ -12,10 +12,10 @@ x = dataSet.iloc[:, x_index:(x_index+1)]
 y = dataSet.iloc[:, y_index:(y_index+1)]
 
 # Checking for null values
-if dataSet['temp'].isnull().sum() > 0:
+if x['temp'].isnull().sum() > 0:
     print("Taking care of null values of temp column")
     x = x.fillna(x.mean())
-if dataSet['cnt'].isnull().sum() > 0:
+if y['cnt'].isnull().sum() > 0:
     print("Taking care of null values of cnt column")
     y = y.fillna(y.mean())
 else:
