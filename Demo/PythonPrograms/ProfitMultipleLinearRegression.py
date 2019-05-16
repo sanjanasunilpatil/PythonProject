@@ -34,7 +34,7 @@ columns = x.columns
 for c in columns:
     if x[c].isnull().sum() > 0:
         print("Taking care of null values of {} column".format(c))
-        x = x.fillna(x.mean())
+        x = x[c].fillna(x[c].mean())
 
 # Splitting values into training and test set
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
