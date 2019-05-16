@@ -50,22 +50,22 @@ y_pred = regression.predict(x_test)
 accuracy = r2_score(y_test, y_pred)
 print("Accuracy from model is : ", accuracy)
 
-# Dumping model into pickle
-file_name = '../inputFiles/DecisionTreeRegression.pkl'
-pkl_file = open(file_name, 'wb')
-model = pickle.dump(regression, pkl_file)
-
-# Loading pickle model to predict data from test_data.csv file
-pkl_file = open(file_name, 'rb')
-model_pkl = pickle.load(pkl_file)
-
-dataSet_testdata = pd.read_csv('../inputFiles/test_data.csv')
-
-x_testdata = dataSet_testdata.iloc[:, x_index:(x_index+1)]
-y_testdata = dataSet_testdata.iloc[:, y_index:(y_index+1)]
-
-y_pred_pkl = model_pkl.predict(x_testdata)
-
-# Calculating accuracy from pickle model
-accuracy_pk = r2_score(y_testdata, y_pred_pkl)
-print("Accuracy by pickle model ", accuracy_pk)
+# # Dumping model into pickle
+# file_name = '../inputFiles/DecisionTreeRegression.pkl'
+# pkl_file = open(file_name, 'wb')
+# model = pickle.dump(regression, pkl_file)
+#
+# # Loading pickle model to predict data from test_data.csv file
+# pkl_file = open(file_name, 'rb')
+# model_pkl = pickle.load(pkl_file)
+#
+# dataSet_testdata = pd.read_csv('../inputFiles/test_data.csv')
+#
+# x_testdata = dataSet_testdata.iloc[:, x_index:(x_index+1)]
+# y_testdata = dataSet_testdata.iloc[:, y_index:(y_index+1)]
+#
+# y_pred_pkl = model_pkl.predict(x_testdata)
+#
+# # Calculating accuracy from pickle model
+# accuracy_pk = r2_score(y_testdata, y_pred_pkl)
+# print("Accuracy by pickle model ", accuracy_pk)
