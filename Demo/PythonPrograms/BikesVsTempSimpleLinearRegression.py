@@ -36,8 +36,6 @@ x = sc_x.fit_transform(x)
 
 # Splitting data set into training and test set
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-print(x_train.shape)
-print(x_test.shape)
 
 # Fitting training set into linear model
 regression = LinearRegression()
