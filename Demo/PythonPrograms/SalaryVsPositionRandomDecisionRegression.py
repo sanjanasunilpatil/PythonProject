@@ -6,9 +6,16 @@ from sklearn.metrics import r2_score
 from sklearn.preprocessing import StandardScaler
 import pickle
 
-# Importing dataset and splitting dataset into 2 different csv files
+# Importing dataset
 dataSet = pd.read_csv('../inputFiles/Position_Salaries.csv')
+length_old = len(dataSet.columns)
 
+# Handling categorical data
+positions = pd.get_dummies(dataSet['Position'])
+dataSet = dataSet.drop('Position', axis=1)
+dataSet = pd.concat([dataSet, positions], axis=1)
+
+# Splitting dataset into 2 different csv files
 df_training = dataSet.sample(frac=0.7)
 df_test = pd.concat([dataSet, df_training]).drop_duplicates(keep=False)
 
@@ -16,16 +23,13 @@ df_training.to_csv('../inputFiles/training_data.csv', header=True, index=None)
 df_test.to_csv('../inputFiles/test_data.csv', header=True, index=None)
 
 dataSet = pd.read_csv('../inputFiles/training_data.csv')
-x_index = dataSet.columns.get_loc("Position")
+
+length_new = len(dataSet.columns)
+
 y_index = dataSet.columns.get_loc("Salary")
 
-x = dataSet.iloc[:, x_index:(x_index+1)]
 y = dataSet.iloc[:, y_index:(y_index+1)]
-
-# Handling categorical data
-postitions = pd.get_dummies(x['Position'])
-x = x.drop('Position', axis=1)
-x = pd.concat([x, postitions], axis=1)
+x = dataSet.iloc[:, (length_old-1):(length_new-1)]
 
 # Checking for null values
 if y['Salary'].isnull().sum() > 0:
@@ -62,7 +66,7 @@ if accuracy > 0.8:
 
     dataSet_testdata = pd.read_csv('../inputFiles/test_data.csv')
 
-    x_testdata = dataSet_testdata.iloc[:, x_index:(x_index+1)]
+    x_testdata = dataSet_testdata.iloc[:, (length_old-1):(length_new-1)]
     y_testdata = dataSet_testdata.iloc[:, y_index:(y_index+1)]
 
     y_pred_pkl = model_pkl.predict(x_testdata)
