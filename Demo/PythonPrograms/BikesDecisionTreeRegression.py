@@ -66,8 +66,8 @@ if accuracy > 0.8:
 
     dataset_testdata = pd.read_csv('../inputFiles/test_data.csv')
 
-    x_testdata = dataSet.iloc[:, [x1_index, x2_index, x3_index, x4_index]]
-    y_testdata = dataSet.iloc[:, y_index:(y_index+1)]
+    x_testdata = dataset_testdata.iloc[:, [x1_index, x2_index, x3_index, x4_index]]
+    y_testdata = dataset_testdata.iloc[:, y_index:(y_index+1)]
 
     y_pred = pkl_model.predict(x_testdata)
 

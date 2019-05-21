@@ -29,7 +29,7 @@ length_new = len(dataSet.columns)
 y_index = dataSet.columns.get_loc("Salary")
 
 y = dataSet.iloc[:, y_index:(y_index+1)]
-x = dataSet.iloc[:, (length_old-1):(length_new-1)]
+x = dataSet.iloc[:, (length_old-1):length_new]
 
 # Checking for null values
 if y['Salary'].isnull().sum() > 0:
@@ -66,7 +66,7 @@ if accuracy > 0.8:
 
     dataSet_testdata = pd.read_csv('../inputFiles/test_data.csv')
 
-    x_testdata = dataSet_testdata.iloc[:, (length_old-1):(length_new-1)]
+    x_testdata = dataSet_testdata.iloc[:, (length_old-1):length_new]
     y_testdata = dataSet_testdata.iloc[:, y_index:(y_index+1)]
 
     y_pred_pkl = model_pkl.predict(x_testdata)
