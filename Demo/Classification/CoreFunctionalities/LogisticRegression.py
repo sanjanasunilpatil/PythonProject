@@ -28,4 +28,6 @@ class ImplementAlgorithm(MLAlgorithmAbstract):
 
 
 implement = ImplementAlgorithm()
-implement.createAndUseModel('../inputFiles/Social_Network_Ads.csv', 'Purchased', ['Age', 'EstimatedSalary'], [])
+# implement.createAndUseModel('../inputFiles/Social_Network_Ads.csv', 'Purchased', ['Age', 'EstimatedSalary'], [])
+
+implement.createAndUseModel('../inputFiles/schillingData.csv', 'Flag', [], ['Octamers'])
