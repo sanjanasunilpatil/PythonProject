@@ -35,9 +35,13 @@ class DataPreprocessingBase:
 
         if len(xColumnCategorical) > 0:
             if len(xColumnNumerical) > 0:
-                x = pd.concat([x, dataSet.iloc[:, (length_old-1):(length_new-1)]], axis=1)
+                x = pd.concat([x, dataSet.iloc[:, (length_old-1):length_new]], axis=1)
             else:
-                x = dataSet.iloc[:, (length_old-1):(length_new-1)]
+                x = dataSet.iloc[:, (length_old-1):length_new]
+
+            # For getting x indices into single place
+            for i in range((length_old-1), length_new, 1):
+                x_index.append(i)
 
         for i in xColumnNumerical:
             if x[i].isnull().sum() > 0:
@@ -47,7 +51,7 @@ class DataPreprocessingBase:
 
         result = self.splitData(x, y)
 
-        return result
+        return result, x_index
 
     # Handling categorical data
     def handleCategoricalData(self, dataSet=pd.DataFrame(), xColumnCategorical=[]):
