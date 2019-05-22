@@ -20,7 +20,7 @@ class ImplementAlgorithm(MLAlgorithmAbstract):
 
         accuracy = accuracy_score(result[0][3], y_pred)
 
-        print("Acurracy of training data", accuracy)
+        print("Accuracy of training data", accuracy)
 
         if accuracy > 0.8:
             ModelSerialization.saveModel(self, classifier)
