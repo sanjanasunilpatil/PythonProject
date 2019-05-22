@@ -47,7 +47,8 @@ class DataPreprocessingBase:
             if x[i].isnull().sum() > 0:
                 self.nullHandling(x[i])
 
-        x = self.featureScaling(x)
+        if len(xColumnNumerical) > 0:
+            x = self.featureScaling(x)
 
         result = self.splitData(x, y)
 
