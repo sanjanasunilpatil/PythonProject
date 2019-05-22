@@ -2,9 +2,8 @@ import pickle
 
 
 class ModelSerialization:
-    def saveModel(self, classifier):
-        file_name = '../inputFiles/LogisticRegression.pkl'
-        pkl_file = open(file_name, 'wb')
+    def saveModel(self, classifier, fileName):
+        pkl_file = open(fileName, 'wb')
         pickle.dump(classifier, pkl_file)
 
 

@@ -23,7 +23,7 @@ class ImplementAlgorithm(MLAlgorithmAbstract):
         print("Accuracy of training data", accuracy)
 
         if accuracy > 0.8:
-            ModelSerialization.saveModel(self, classifier)
+            ModelSerialization.saveModel(self, classifier, '../inputFiles/LogisticRegression.pkl')
             ModelDeserialization.loadModel(self, '../inputFiles/LogisticRegression.pkl', yColumn, result[1])
 
 
