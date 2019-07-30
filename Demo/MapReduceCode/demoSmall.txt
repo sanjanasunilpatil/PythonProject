@@ -1,0 +1,3 @@
+Hi
+This is start of hadoop
+careating small file and uploading in HDFS
