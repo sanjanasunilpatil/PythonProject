@@ -1,0 +1,1 @@
+http://resources.itversity.com/courses/cca-175-spark-and-hadoop-developer-certification-scala/lessons/cca-data-ingest-real-time-near-real-time-and-streaming-analytics-scala/topic/cca-flume-and-spark-streaming-department-wise-traffic-run-and-validate-scala/
