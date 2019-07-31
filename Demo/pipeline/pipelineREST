@@ -1,0 +1,165 @@
+import requests
+import ast
+import json
+
+
+# Get authenticated token
+auth_data = {'grant_type': 'client_credentials',
+        'client_id': '907f23a6-b86e-481e-853f-76ae2207511f',
+        'client_secret': 'B5WB4/NUCEVe]WLf+mOKqlv-oPHAs5c2',
+        'resource': 'https://management.core.windows.net/'}
+
+response = requests.post(url='https://login.microsoftonline.com/eb20330a-b375-43c2-a621-3d5443b27184/oauth2/token', data=auth_data)
+
+access_token = ast.literal_eval(response.text)['access_token']
+
+# # create ADLS account
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataLakeStore/accounts/sanjanaadlss?api-version=2016-11-01'
+# data = {'location': 'East US2'}
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+#
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+#
+# print(response.text)
+
+# # create ADLA account
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataLakeAnalytics/accounts/sanjanadla?api-version=2016-11-01'
+# data = {
+#  "location": "East US2",
+#  "properties": {
+# 	"defaultDataLakeStoreAccount": "sanjanaadlss",
+#     	"dataLakeStoreAccounts": [
+#     	{
+#     	 "name": "sanjanaadlss"
+#         }
+#     ]
+#  }
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+#
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+# # Create Data Factory
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1?api-version=2018-06-01'
+# data = {
+#  "location": "East US2"
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+#
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+# # Create ADLS linked services
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1/linkedservices/AzureDataLakeLinkedService?api-version=2018-06-01'
+# data = {
+#     "properties": {
+#         "type": "AzureDataLakeStore",
+#         "typeProperties": {
+#             "dataLakeStoreUri": "https://sanjanaadlss.azuredatalakestore.net/webhdfs/v1",
+#             "servicePrincipalId": "907f23a6-b86e-481e-853f-76ae2207511f",
+#             "servicePrincipalKey": {
+#                 "type": "SecureString",
+#                 "value": "B5WB4/NUCEVe]WLf+mOKqlv-oPHAs5c2"
+#             },
+#             "tenant": "eb20330a-b375-43c2-a621-3d5443b27184"
+#         }
+#
+#     }
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+# # Create Dataset for input folder in ADLS
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1/datasets/ADLSinputDataset?api-version=2018-06-01'
+# data = {
+#     "name": "ADLSinputDataset",
+#     "properties": {
+#         "type": "AzureDataLakeStoreFile",
+#         "linkedServiceName": {
+#             "referenceName": "AzureDataLakeLinkedService",
+#             "type": "LinkedServiceReference"
+#         },
+#         "typeProperties": {
+#             "folderPath": "Input",
+#             "fileName": "bank_test.csv",
+#             "format": {
+#                 "type": "TextFormat",
+#                 "columnDelimiter": ";",
+#                 "rowDelimiter": "\n",
+#                 "firstRowAsHeader": True,
+#             }
+#         }
+#     }
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+
+# # Create Dataset for Output folder in ADLS
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1/datasets/ADLSoutputDataset?api-version=2018-06-01'
+# data = {
+#     "name": "ADLSoutputDataset",
+#     "properties": {
+#         "type": "AzureDataLakeStoreFile",
+#         "linkedServiceName": {
+#             "referenceName": "AzureDataLakeLinkedService",
+#             "type": "LinkedServiceReference"
+#         },
+#         "typeProperties": {
+#             "folderPath": "Output"
+#         }
+#     }
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+# # Create pipeline with copy activity
+# url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1/pipelines/RESTpipeline?api-version=2018-06-01'
+# data = {
+#     "name": "RESTpipeline",
+#     "properties": {
+#         "activities": [
+#             {"name": "CopyFromADLS_ADLS",
+#              "type": "Copy",
+#              "inputs": [
+#                 {
+#                     "referenceName": "ADLSinputDataset",
+#                     "type": "DatasetReference"
+#                 }
+#              ],
+#              "outputs": [
+#                 {
+#                     "referenceName": "ADLSoutputDataset",
+#                     "type": "DatasetReference"
+#                 }
+#              ],
+#              "typeProperties": {
+#                 "source": {
+#                     "type": "DelimitedTextSource",
+#                     "formatSettings": {
+#                         "type": "DelimitedTextReadSetting",
+#                     }
+#                 },
+#                 "sink": {
+#                     "type": "DelimitedTextSource"
+#                 }
+#              }
+#              }
+#         ]
+#     }
+# }
+# headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+# response = requests.put(url=url, data=json.dumps(data), headers=headers)
+# print(response.text)
+
+# Run Pipeline
+url = 'https://management.azure.com/subscriptions/48b9dd42-97d6-47c1-8227-eb67af109112/resourceGroups/batch1_Sanjana_rg/providers/Microsoft.DataFactory/factories/dfSanjana1/pipelines/RESTpipeline/createRun?api-version=2018-06-01'
+headers = {'content-type': 'application/json', 'Authorization': 'Bearer ' + access_token}
+response = requests.post(url=url, headers=headers)
+print(response.text)
+
+
