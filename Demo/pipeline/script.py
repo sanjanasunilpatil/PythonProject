@@ -43,15 +43,15 @@ class script:
 
     def connectivity(self):
         # Azure subscription ID
-        subscription_id = '540bcf3e-716f-4ab5-b499-68e5285ea954'
+        subscription_id = '48b9dd42-97d6-47c1-8227-eb67af109112'
 
-        rg_name = 'rg1Sanjana'
-        df_name = 'dfSanjana'
+        rg_name = 'sanjana_rg'
+        df_name = 'dfSanjana1'
 
         # Specify your Active Directory client ID, client secret, and tenant ID
-        credentials = ServicePrincipalCredentials(client_id='720226fd-782c-4068-a00c-63f3680dc133',
-                                                  secret='2Y:Hc?0YauQZ8*IX3=ppT1/E*@@=T2hM',
-                                                  tenant='524b0e96-35a3-46ef-ade3-a76c1936a890')
+        credentials = ServicePrincipalCredentials(client_id='907f23a6-b86e-481e-853f-76ae2207511f',
+                                                  secret='B5WB4/NUCEVe]WLf+mOKqlv-oPHAs5c2',
+                                                  tenant='eb20330a-b375-43c2-a621-3d5443b27184')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
@@ -151,8 +151,8 @@ class script:
 
         ls_azure_storage = AzureDataLakeStoreLinkedService(
             data_lake_store_uri='adl://sanjanaadls.azuredatalakestore.net/',
-            service_principal_id='720226fd-782c-4068-a00c-63f3680dc133',
-            service_principal_key='2Y:Hc?0YauQZ8*IX3=ppT1/E*@@=T2hM')
+            service_principal_id='907f23a6-b86e-481e-853f-76ae2207511f',
+            service_principal_key='B5WB4/NUCEVe]WLf+mOKqlv-oPHAs5c2')
 
         client[1].linked_services.create_or_update(client[2], client[3], ls_name, ls_azure_storage)
 
